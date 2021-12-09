@@ -9,7 +9,7 @@ import java.awt.*;
 public abstract class Creature extends Entity {
 
     public static final int Deafult_Health=3;
-    public static final float deafult_Speed= 3.0F;
+    public static final float deafult_Speed= 10.0F;
     public static  final int deafult_creature_width=64;
     public static final int deafult_creature_height=64;
 
@@ -33,13 +33,13 @@ public abstract class Creature extends Entity {
     }
     public void moveX(){
         if(moveX>0){ //kanan
-            int t=(int)(x+moveX+ bounds.x+bounds.width)/ Tiles.tileWidth;
-            if(!collision(t,(int)(y+bounds.y)/Tiles.tileHeight)&&!collision(t,(int)(y+bounds.y+bounds.height)/Tiles.tileHeight)){
+            int tx=(int)(x+moveX+ bounds.x+bounds.width)/ Tiles.tileWidth;
+            if(!collision(tx,(int)(y+bounds.y)/Tiles.tileHeight)&&!collision(tx,(int)(y+bounds.y+bounds.height)/Tiles.tileHeight)){
                 x+=moveX;
             }
         }else if (moveX<0){ //kiri
-            int t=(int)(x+moveX+ bounds.x)/ Tiles.tileWidth;
-            if(!collision(t,(int)(y+bounds.y)/Tiles.tileHeight)&&!collision(t,(int)(y+bounds.y+bounds.height)/Tiles.tileHeight)){
+            int tx=(int)(x+moveX+ bounds.x)/ Tiles.tileWidth;
+            if(!collision(tx,(int)(y+bounds.y)/Tiles.tileHeight)&&!collision(tx,(int)(y+bounds.y+bounds.height)/Tiles.tileHeight)){
                 x+=moveX;
             }
         }

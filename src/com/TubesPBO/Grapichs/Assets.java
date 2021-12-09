@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 public class Assets {
     public static final int width =32,height =32;
     //tiles
-    public static BufferedImage log,brick,grass,brickGrass;
+    public static BufferedImage brick,grass,brickGrass;
     //ghost
     public static BufferedImage[]ghost_down,ghost_up,ghost_left,ghost_right;
     //player
@@ -77,6 +77,6 @@ public class Assets {
         grass=tiles.crop(128,0,128,128);
         //add ons
         tree=addOns.crop(128,0,128,256);
-
+        grave=addOns.crop(0,0,128,128);
     }
 }

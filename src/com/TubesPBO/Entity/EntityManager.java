@@ -14,7 +14,7 @@ public class EntityManager {
     public EntityManager(Handler handler, Player player){
         this.handler=handler;
         this.player=player;
-        entities= new ArrayList<Entity>();
+        entities= new ArrayList<>();
         addEntity(player);
     }
     public void update(){

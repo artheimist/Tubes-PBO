@@ -15,7 +15,7 @@ public class Tiles {
     public Tiles(BufferedImage texture,int id){
         this.texture=texture;
         this.id=id;
-        tiles[id]=this;// nyimpen grass dirt di array
+        tiles[id]=this; // nyimpen grass dirt di array
     }
 
     public void update(){

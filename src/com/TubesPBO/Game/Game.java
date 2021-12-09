@@ -21,24 +21,23 @@ public class Game implements Runnable{ // extend Thread
     private BufferStrategy bs;      // kayak sebuah screen tempat gambar di render atau di tampilkan sebelum di tampilakn ke layar asli
     private Graphics g;             // paint brush alat buat gambarnya
 
-    private State gameState;        //
-    private KeyManager keyManager;  //
-    private GameCamera gameCamera;  //
-    private Handler handler;
+    private State gameState;        // untuk menu state, exit state,game state
+    private KeyManager keyManager;  // untuk key manager
+    private GameCamera gameCamera;  // untuk camera
+    private Handler handler;        // untuk getter dan setter world dan game
     Game (String title, int width, int height){
         this.width=width;
         this.height=height;
         this.title=title;
         keyManager= new KeyManager();
     }
-    public void init(){ // inisialisasi untuk gamenya ex: display
-        display=new Display(title,width,height); // nampilin display (Jframe dkk) a.k.a GUI
-        //nanti//
+    public void init(){                                 // inisialisasi untuk gamenya ex: display
+        display=new Display(title,width,height);        // nampilin display (Jframe dkk) a.k.a GUI
         display.getFrame().addKeyListener(keyManager);
         Assets.init();
         handler= new Handler(this);
         gameCamera= new GameCamera(handler,0,0);
-        //mana yang akan ditampilkan duluan
+                                                        //mana yang akan ditampilkan duluan
         gameState= new GameState(handler);
         State.setState(gameState); // set nilai state nya disini klo mau nampilin langsung game nya, klo mau menu jadinya di set menuState
     }
@@ -48,8 +47,8 @@ public class Game implements Runnable{ // extend Thread
             State.getState().update();
         }
     }
-    public void render(){
-        bs=display.getCanvas().getBufferStrategy();
+    public void render(){                           // render ke game
+        bs=display.getCanvas().getBufferStrategy(); // ambil buffer strategy
         if(bs==null){
           display.getCanvas().createBufferStrategy(3);
           return;
