@@ -20,6 +20,11 @@ public class Grave extends StaticEntity{
     }
 
     @Override
+    public void die() {
+
+    }
+
+    @Override
     public void render(Graphics g) {
         g.drawImage(Assets.grave,(int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()),width,height,null);
 //        g.fillRect(bounds.x, bounds.y, bounds.width, bounds.height);

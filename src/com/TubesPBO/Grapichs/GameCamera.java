@@ -27,7 +27,7 @@ public class GameCamera {
         }
     }
     public void cameraOnEntity(Entity e){                           // setting camera di player atau entity
-        xOffset=e.getX()-handler.getWidth()/2+e.getWidth()/2;       
+        xOffset=e.getX()-handler.getWidth()/2+e.getWidth()/2;       //
         yOffset=e.getY()-handler.getHeight()/2+e.getHeight()/2;
         checkBlank();
     }

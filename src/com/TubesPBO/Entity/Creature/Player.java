@@ -4,6 +4,7 @@ import com.TubesPBO.Game.Game;
 import com.TubesPBO.Game.Handler;
 import com.TubesPBO.Grapichs.Animation;
 import com.TubesPBO.Grapichs.Assets;
+import com.TubesPBO.States.State;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -36,7 +37,19 @@ public class Player extends Creature{
         animationUpdate();
         input();
         movement();
+        die();
         handler.getGameCamera().cameraOnEntity(this);
+    }
+
+    @Override
+    public void die() {
+        if(health==0){
+            State.setState(handler.getGame().gameOverState);
+            return;
+        }
+    }
+    public void attack(){
+
     }
     private void input(){
         moveX=0;

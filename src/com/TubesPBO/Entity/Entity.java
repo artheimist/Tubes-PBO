@@ -11,6 +11,7 @@ public abstract class Entity {
     protected float x,y;
     protected int width,height;
     protected Rectangle bounds;
+    protected  int health;
     public Entity(Handler handler,int width,int height,float x, float y){
         this.handler=handler;
         this.x=x;
@@ -66,6 +67,7 @@ public abstract class Entity {
     }
 
     public abstract void update();
+    public abstract void die();
     public abstract void render(Graphics g);
 
 }

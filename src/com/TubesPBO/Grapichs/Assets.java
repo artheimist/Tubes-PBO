@@ -10,13 +10,12 @@ public class Assets {
     public static BufferedImage[]ghost_down,ghost_up,ghost_left,ghost_right;
     //player
     public static BufferedImage[]player_down,player_up,player_left,player_right;
-    public static BufferedImage standingStill;
     //zombie
     public static BufferedImage[]zombie;
     //add ons
     public static BufferedImage tree,grave;
     public static void init(){
-        Sheet zombie= new Sheet(ImageLoader.loadimage("/Textures/Entity/Zombie.png"));
+        Sheet zombie= new Sheet(ImageLoader.loadimage("/Textures/Entity/zombie.png"));
         Sheet ghost= new Sheet(ImageLoader.loadimage("/Textures/Entity/Ghost.png"));
         Sheet player= new Sheet(ImageLoader.loadimage("/Textures/Entity/player.png"));
         Sheet tiles= new Sheet(ImageLoader.loadimage("/Textures/Tiles/Tiles.png"));
@@ -71,6 +70,7 @@ public class Assets {
         player_left[1]=player.crop(128,128*2,128,128);
         player_left[2]=player.crop(128*2,128*2,128,128);
         player_left[3]=player.crop(128*3,128*2,128,128);
+        //zombie
         //tiles
         brick= tiles.crop(0,0,128,128);
         brickGrass=tiles.crop(0,128,128,128);

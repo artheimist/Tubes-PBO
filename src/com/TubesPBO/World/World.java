@@ -44,10 +44,10 @@ public class World {
     }
     
     public Tiles getTile(int x,int y){
-        //mecegah player keluar dr map
-//        if(x<0|| y<0||x >=width||y>=height){
-//            return Tiles.grassTile;
-//        }
+//        mecegah error saat player keluar dr map
+        if(x<0|| y<0||x >=width||y>=height){
+            return Tiles.grassTile;
+        }
         Tiles tile= Tiles.tiles[this.tile[x][y]];  //
         if(tile==null){
             return Tiles.brickTile;
@@ -78,6 +78,39 @@ public class World {
         entityManager.addEntity(new Tree(handler,0,830));
         entityManager.addEntity(new Tree(handler,0,880));
         entityManager.addEntity(new Tree(handler,0,930));
+        entityManager.addEntity(new Tree(handler,385,810));
+        entityManager.addEntity(new Tree(handler,385,880));
+        entityManager.addEntity(new Tree(handler,325,810));
+        entityManager.addEntity(new Grave(handler,70,1020));
+        entityManager.addEntity(new Grave(handler,130,1020));
+        entityManager.addEntity(new Grave(handler,130,950));
+        entityManager.addEntity(new Grave(handler,130,880));
+        entityManager.addEntity(new Grave(handler,635,930));
+        entityManager.addEntity(new Grave(handler,760,1020));
+        entityManager.addEntity(new Grave(handler,760,950));
+        entityManager.addEntity(new Grave(handler,960,640));
+        entityManager.addEntity(new Grave(handler,1020,640));
+        entityManager.addEntity(new Grave(handler,1020,1020));
+        entityManager.addEntity(new Grave(handler,1080,1020));
+        entityManager.addEntity(new Grave(handler,1080,950));
+        entityManager.addEntity(new Grave(handler,1020,705));
+        entityManager.addEntity(new Grave(handler,1020,770));
+        entityManager.addEntity(new Grave(handler,1020,830));
+        entityManager.addEntity(new Grave(handler,1080,705));
+        entityManager.addEntity(new Grave(handler,1080,830));
+        entityManager.addEntity(new Grave(handler,1790,630));
+        entityManager.addEntity(new Grave(handler,1790,700));
+        entityManager.addEntity(new Grave(handler,1725,700));
+        entityManager.addEntity(new Tree(handler,1855,590));
+        entityManager.addEntity(new Tree(handler,1855,645));
+        entityManager.addEntity(new Tree(handler,1855,760));
+        entityManager.addEntity(new Tree(handler,1855,900));
+        entityManager.addEntity(new Tree(handler,1855,970));
+        entityManager.addEntity(new Tree(handler,1790,900));
+        entityManager.addEntity(new Tree(handler,1725,900));
+        entityManager.addEntity(new Tree(handler,1660,900));
+        entityManager.addEntity(new Grave(handler,1530,950));
+
 
         entityManager.addEntity(new Grave(handler,250,250));
         entityManager.addEntity(new Grave(handler,515,250));
@@ -107,10 +140,50 @@ public class World {
         entityManager.addEntity(new Tree(handler,1855,320));
         entityManager.addEntity(new Tree(handler,1855,405));
         entityManager.addEntity(new Tree(handler,1855,430));
+
+
         entityManager.addEntity(new Grave(handler,1454,375));
         entityManager.addEntity(new Grave(handler,1454,440));
         entityManager.addEntity(new Grave(handler,1454,510));
         entityManager.addEntity(new Grave(handler,1520,510));
+        //FLOOR 2
+        entityManager.addEntity(new Tree(handler,1855,1030));
+        entityManager.addEntity(new Tree(handler,1855,1080));
+        entityManager.addEntity(new Tree(handler,1855,1130));
+        entityManager.addEntity(new Tree(handler,1855,1180));
+        entityManager.addEntity(new Tree(handler,1855,1230));
+        entityManager.addEntity(new Tree(handler,1855,1280));
+        entityManager.addEntity(new Tree(handler,1855,1330));
+        entityManager.addEntity(new Tree(handler,1855,1380));
+        entityManager.addEntity(new Tree(handler,1855,1430));
+        entityManager.addEntity(new Tree(handler,1855,1480));
+        entityManager.addEntity(new Tree(handler,1855,1530));
+        entityManager.addEntity(new Tree(handler,1855,1580));
+        entityManager.addEntity(new Tree(handler,1855,1630));
+        entityManager.addEntity(new Tree(handler,1855,1680));
+        entityManager.addEntity(new Tree(handler,1855,1730));
+        //KIRI
+        entityManager.addEntity(new Tree(handler,0,1080));
+        entityManager.addEntity(new Tree(handler,65,1080));
+        entityManager.addEntity(new Tree(handler,130,1080));
+
+        entityManager.addEntity(new Tree(handler,0,1130));
+        entityManager.addEntity(new Tree(handler,65,1130));
+        entityManager.addEntity(new Tree(handler,130,1130));
+
+        entityManager.addEntity(new Tree(handler,0,1180));
+        entityManager.addEntity(new Tree(handler,65,1180));
+        entityManager.addEntity(new Tree(handler,130,1180));
+
+        entityManager.addEntity(new Tree(handler,0,1230));
+        entityManager.addEntity(new Tree(handler,65,1230));
+        entityManager.addEntity(new Tree(handler,130,1230));
+
+        entityManager.addEntity(new Tree(handler,65,1280));
+        entityManager.addEntity(new Tree(handler,130,1280));
+        entityManager.addEntity(new Tree(handler,0,1380));
+        entityManager.addEntity(new Tree(handler,0,1410));
+
     }
     public void loadWorld(String path){
         String file= Utils.loadFileAsString(path);

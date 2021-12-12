@@ -2,6 +2,9 @@ package com.TubesPBO.Entity.Creature;
 
 import com.TubesPBO.Game.Handler;
 import com.TubesPBO.Grapichs.Animation;
+import com.TubesPBO.Grapichs.Assets;
+
+import java.awt.*;
 
 public class Monster extends  Creature{
 
@@ -19,7 +22,13 @@ public class Monster extends  Creature{
     public void update(){
 
     }
-    public void render(){
 
+    @Override
+    public void die() {
+
+    }
+
+    public void render(Graphics g){
+        g.drawImage(Assets.ghost_down[0],100,100,null);
     }
 }
