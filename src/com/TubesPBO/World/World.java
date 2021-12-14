@@ -1,8 +1,10 @@
 package com.TubesPBO.World;
 
+import com.TubesPBO.Entity.Creature.Ghost;
 import com.TubesPBO.Entity.Creature.Player;
 import com.TubesPBO.Entity.Creature.Zombie;
 import com.TubesPBO.Entity.EntityManager;
+import com.TubesPBO.Entity.Static.Chest;
 import com.TubesPBO.Entity.Static.Grave;
 import com.TubesPBO.Entity.Static.Tree;
 import com.TubesPBO.Game.Game;
@@ -56,6 +58,9 @@ public class World {
         return  tile;
     }
     public void loadEntity(){
+        //chest
+//        entityManager.addEntity(new Chest(handler,450,200));
+        //
         entityManager.addEntity(new Tree(handler,50,0));
         entityManager.addEntity(new Tree(handler,0,120));
         entityManager.addEntity(new Grave(handler,30,240));
@@ -219,9 +224,9 @@ public class World {
         entityManager.addEntity(new Tree(handler,1665,1635));
         entityManager.addEntity(new Tree(handler,1665,1730));
         //chest
-
+//        entityManager.addEntity((new Ghost(handler,300,50,"horizontal",200,2)));
         //zombie
-        entityManager.addEntity((new Zombie(handler,400,50,"vertical",200,2)));
+//        entityManager.addEntity((new Zombie(handler,400,50,"vertical",200,2)));
         //ghost
     }
     public void loadWorld(String path){

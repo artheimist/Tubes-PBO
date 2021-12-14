@@ -25,7 +25,7 @@ public class Game implements Runnable{ // extend Thread
 
     public State gameState;        // untuk menu state, exit state,game state
     public State gameOverState;
-    public State menuState;
+    public State menuState;         // menu state
     private KeyManager keyManager;  // untuk key manager
     private GameCamera gameCamera;  // untuk camera
     private Handler handler;        // untuk getter dan setter world dan game
@@ -45,7 +45,7 @@ public class Game implements Runnable{ // extend Thread
         gameState= new GameState(handler);
         menuState= new MenuState(handler);
         gameOverState= new GameOverState(handler);
-        State.setState(menuState); // set nilai state nya disini klo mau nampilin langsung game nya, klo mau menu jadinya di set menuState
+        State.setState(gameState); // set nilai state nya disini klo mau nampilin langsung game nya, klo mau menu jadinya di set menuState
     }
     public void update(){
         keyManager.update();

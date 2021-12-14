@@ -13,11 +13,15 @@ public class Assets {
     //zombie
     public static BufferedImage[]zombie_down,zombie_up,zombie_left,zombie_right;
     //add ons
-    public static BufferedImage tree,grave,chest;
+    public static BufferedImage tree,grave,chest1;
+    //item
+    public static BufferedImage belati1,salib1;
     public static void init(){
         Sheet zombie= new Sheet(ImageLoader.loadimage("/Textures/Entity/zombie.png"));
+        Sheet belati=new Sheet(ImageLoader.loadimage("/Textures/Item/Belati.png"));
+        Sheet salib=new Sheet(ImageLoader.loadimage("/Textures/Item/Salib.png"));
         Sheet ghost= new Sheet(ImageLoader.loadimage("/Textures/Entity/Ghost.png"));
-        Sheet chest= new Sheet(ImageLoader.loadimage("/Textures/StaticEntity/entity.png")); // ubah
+        Sheet chest= new Sheet(ImageLoader.loadimage("/Textures/StaticEntity/Chest.png")); // ubah
         Sheet player= new Sheet(ImageLoader.loadimage("/Textures/Entity/player.png"));
         Sheet tiles= new Sheet(ImageLoader.loadimage("/Textures/Tiles/Tiles.png"));
         Sheet addOns= new Sheet(ImageLoader.loadimage("/Textures/StaticEntity/entity.png"));
@@ -104,5 +108,9 @@ public class Assets {
         //add ons
         tree=addOns.crop(128,0,128,256);
         grave=addOns.crop(0,0,128,128);
+        chest1= chest.crop(0,0,128,128);
+        // item
+        belati1=belati.crop(0,0,128,128);
+        salib1=salib.crop(0,0,128,128);
     }
 }

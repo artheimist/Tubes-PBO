@@ -31,10 +31,13 @@ public class DisplayItems {
     public void weaponZombie (Graphics g){
         g.setColor(Color.WHITE);
         g.setFont(new Font("Arial", Font.BOLD, 30));
+        g.drawImage(Assets.belati1,470,20,30,30,null);
+        g.drawString(handler.getWorld().getEntityManager().getPlayer().getWeaponZombie(),510, 47);
     }
     public void weaponGhost(Graphics g){
         g.setColor(Color.WHITE);
         g.setFont(new Font("Arial", Font.BOLD, 30));
+        g.drawImage(Assets.salib1,360,20,30,30,null);
         g.drawString(handler.getWorld().getEntityManager().getPlayer().getWeaponGhost(),400, 47);
     }
 }

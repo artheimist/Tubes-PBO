@@ -22,14 +22,11 @@ public class GameState extends State {// real game state
     @Override
     public void update() {
         world.update();
-
-
     }
 
     @Override
     public void render(Graphics g) {
         world.render(g);
-
     }
 
 }
