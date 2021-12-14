@@ -11,12 +11,13 @@ public class Assets {
     //player
     public static BufferedImage[]player_down,player_up,player_left,player_right;
     //zombie
-    public static BufferedImage[]zombie;
+    public static BufferedImage[]zombie_down,zombie_up,zombie_left,zombie_right;
     //add ons
-    public static BufferedImage tree,grave;
+    public static BufferedImage tree,grave,chest;
     public static void init(){
         Sheet zombie= new Sheet(ImageLoader.loadimage("/Textures/Entity/zombie.png"));
         Sheet ghost= new Sheet(ImageLoader.loadimage("/Textures/Entity/Ghost.png"));
+        Sheet chest= new Sheet(ImageLoader.loadimage("/Textures/StaticEntity/entity.png")); // ubah
         Sheet player= new Sheet(ImageLoader.loadimage("/Textures/Entity/player.png"));
         Sheet tiles= new Sheet(ImageLoader.loadimage("/Textures/Tiles/Tiles.png"));
         Sheet addOns= new Sheet(ImageLoader.loadimage("/Textures/StaticEntity/entity.png"));
@@ -71,6 +72,31 @@ public class Assets {
         player_left[2]=player.crop(128*2,128*2,128,128);
         player_left[3]=player.crop(128*3,128*2,128,128);
         //zombie
+        zombie_up= new BufferedImage[4];
+        zombie_down= new BufferedImage[4];
+        zombie_left=new BufferedImage[4];
+        zombie_right=new BufferedImage[4];
+
+        zombie_down[0]=zombie.crop(0,0,128,128);
+        zombie_down[1]=zombie.crop(128,0,128,128);
+        zombie_down[2]=zombie.crop(128*2,0,128,128);
+        zombie_down[3]=zombie.crop(128*3,0,128,128);
+
+        zombie_up[0]=zombie.crop(0,128,128,128);
+        zombie_up[1]=zombie.crop(128,128,128,128);
+        zombie_up[2]=zombie.crop(128*2,128,128,128);
+        zombie_up[3]=zombie.crop(128*3,128,128,128);
+
+        zombie_left[0]=zombie.crop(0,128*2,128,128);
+        zombie_left[1]=zombie.crop(128,128*2,128,128);
+        zombie_left[2]=zombie.crop(128*2,128*2,128,128);
+        zombie_left[3]=zombie.crop(128*3,128*2,128,128);
+
+        zombie_right[0]=zombie.crop(0,128*3,128,128);
+        zombie_right[1]=zombie.crop(128,128*3,128,128);
+        zombie_right[2]=zombie.crop(128*2,128*3,128,128);
+        zombie_right[3]=zombie.crop(128*3,128*3,128,128);
+
         //tiles
         brick= tiles.crop(0,0,128,128);
         brickGrass=tiles.crop(0,128,128,128);

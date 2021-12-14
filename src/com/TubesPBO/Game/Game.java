@@ -6,6 +6,7 @@ import com.TubesPBO.Grapichs.GameCamera;
 import com.TubesPBO.Input.KeyManager;
 import com.TubesPBO.States.GameOverState;
 import com.TubesPBO.States.GameState;
+import com.TubesPBO.States.MenuState;
 import com.TubesPBO.States.State;
 
 
@@ -24,6 +25,7 @@ public class Game implements Runnable{ // extend Thread
 
     public State gameState;        // untuk menu state, exit state,game state
     public State gameOverState;
+    public State menuState;
     private KeyManager keyManager;  // untuk key manager
     private GameCamera gameCamera;  // untuk camera
     private Handler handler;        // untuk getter dan setter world dan game
@@ -41,8 +43,9 @@ public class Game implements Runnable{ // extend Thread
         gameCamera= new GameCamera(handler,0,0);
                                                         //mana yang akan ditampilkan duluan
         gameState= new GameState(handler);
+        menuState= new MenuState(handler);
         gameOverState= new GameOverState(handler);
-        State.setState(gameState); // set nilai state nya disini klo mau nampilin langsung game nya, klo mau menu jadinya di set menuState
+        State.setState(menuState); // set nilai state nya disini klo mau nampilin langsung game nya, klo mau menu jadinya di set menuState
     }
     public void update(){
         keyManager.update();

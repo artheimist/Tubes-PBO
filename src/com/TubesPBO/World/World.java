@@ -1,6 +1,7 @@
 package com.TubesPBO.World;
 
 import com.TubesPBO.Entity.Creature.Player;
+import com.TubesPBO.Entity.Creature.Zombie;
 import com.TubesPBO.Entity.EntityManager;
 import com.TubesPBO.Entity.Static.Grave;
 import com.TubesPBO.Entity.Static.Tree;
@@ -166,6 +167,28 @@ public class World {
         entityManager.addEntity(new Tree(handler,0,1080));
         entityManager.addEntity(new Tree(handler,65,1080));
         entityManager.addEntity(new Tree(handler,130,1080));
+        entityManager.addEntity(new Grave(handler,255,1150));
+        //entityManager.addEntity(new Grave(handler,320,1150));
+        entityManager.addEntity(new Tree(handler,450,1110));
+        entityManager.addEntity(new Tree(handler,450,1215));
+        entityManager.addEntity(new Grave(handler,630,1150));
+        entityManager.addEntity(new Grave(handler,895,1150));
+        entityManager.addEntity(new Grave(handler,1790,1150));
+        entityManager.addEntity(new Grave(handler,1730,1150));
+        entityManager.addEntity(new Grave(handler,1790,1215));
+        entityManager.addEntity(new Grave(handler,1730,1215));
+        entityManager.addEntity(new Grave(handler,1345,1280));
+        entityManager.addEntity(new Grave(handler,1215,1280));
+        entityManager.addEntity(new Tree(handler,960,1280));
+        entityManager.addEntity(new Grave(handler,640,1345));
+        entityManager.addEntity(new Grave(handler,510,1410));
+        entityManager.addEntity(new Grave(handler,380,1410));
+        entityManager.addEntity(new Grave(handler,440,1540));
+        entityManager.addEntity(new Grave(handler,510,1725));
+        entityManager.addEntity(new Grave(handler,640,1660));
+        entityManager.addEntity(new Grave(handler,120,1635));
+
+
 
         entityManager.addEntity(new Tree(handler,0,1130));
         entityManager.addEntity(new Tree(handler,65,1130));
@@ -183,7 +206,23 @@ public class World {
         entityManager.addEntity(new Tree(handler,130,1280));
         entityManager.addEntity(new Tree(handler,0,1380));
         entityManager.addEntity(new Tree(handler,0,1410));
+        entityManager.addEntity(new Tree(handler,0,1530));
+        entityManager.addEntity(new Tree(handler,0,1580));
+        entityManager.addEntity(new Tree(handler,0,1630));
+        entityManager.addEntity(new Tree(handler,0,1680));
+        entityManager.addEntity(new Tree(handler,0,1730));
+        entityManager.addEntity(new Grave(handler,1535,1790));
+        entityManager.addEntity(new Grave(handler,960,1600));
+        entityManager.addEntity(new Tree(handler,1150,1500));
+        entityManager.addEntity(new Tree(handler,1600,1315));
+        entityManager.addEntity(new Tree(handler,1600,1410));
+        entityManager.addEntity(new Tree(handler,1665,1635));
+        entityManager.addEntity(new Tree(handler,1665,1730));
+        //chest
 
+        //zombie
+        entityManager.addEntity((new Zombie(handler,400,50,"vertical",200,2)));
+        //ghost
     }
     public void loadWorld(String path){
         String file= Utils.loadFileAsString(path);

@@ -4,6 +4,7 @@ import com.TubesPBO.Game.Game;
 import com.TubesPBO.Game.Handler;
 import com.TubesPBO.Grapichs.Animation;
 import com.TubesPBO.Grapichs.Assets;
+import com.TubesPBO.Grapichs.DisplayItems;
 import com.TubesPBO.States.State;
 
 import java.awt.*;
@@ -11,6 +12,8 @@ import java.awt.image.BufferedImage;
 
 public class Player extends Creature{
     int lastFrame=4;
+    private int health,weaponZombie,weaponGhost;
+    private DisplayItems displayItems;
     private Animation animationDown,animationUp,animationRight,animationLeft;
     public Player(Handler handler , float x, float y) {
         super(handler,x, y,Creature.deafult_creature_width,Creature.deafult_creature_height);
@@ -18,7 +21,11 @@ public class Player extends Creature{
         bounds.y=32;
         bounds.width=32;
         bounds.height=32;
+        this.health=3;
+        weaponGhost=0;
+        weaponZombie=0;
         init();
+        displayItems= new DisplayItems(handler);
     }
     public void init(){
         animationDown= new Animation(200,Assets.player_down);
@@ -39,6 +46,7 @@ public class Player extends Creature{
         movement();
         die();
         handler.getGameCamera().cameraOnEntity(this);
+        displayItems.update();
     }
 
     @Override
@@ -69,6 +77,7 @@ public class Player extends Creature{
     }
     @Override
     public void render(Graphics g) {
+        displayItems.render(g);
         g.drawImage(getCurrentFrame(), (int)(x-handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset() ),width,height,null);
 //        g.setColor(Color.red);
 //        g.fillRect((int)(x+bounds.x-handler.getGameCamera().getxOffset()),(int)(y+bounds.y-handler.getGameCamera().getyOffset()),bounds.width, bounds.height);
@@ -106,5 +115,18 @@ public class Player extends Creature{
             default:
                 return null;
         }
+    }
+
+    @Override
+    public int getHealth() {
+        return health;
+    }
+
+    public String getWeaponGhost() {
+        return Integer.toString(weaponGhost);
+    }
+
+    public String getWeaponZombie() {
+        return Integer.toString(weaponZombie);
     }
 }
