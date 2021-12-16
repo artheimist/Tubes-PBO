@@ -8,12 +8,10 @@ import java.awt.*;
 
 public abstract class Creature extends Entity {
 
-    public static final int Deafult_Health=3;
     public static final float deafult_Speed= 10.0F;
     public static  final int deafult_creature_width=64;
     public static final int deafult_creature_height=64;
 
-    protected int health;
     protected float speed;
     protected float moveX;
     protected float moveY;
@@ -21,7 +19,6 @@ public abstract class Creature extends Entity {
 
     public Creature(Handler handler, float x, float y, int width, int height){
         super(handler,width,height,x,y);
-        health=Deafult_Health;
         speed=deafult_Speed;
         moveX=0;
         moveY=0;

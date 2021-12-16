@@ -17,6 +17,7 @@ public class Zombie extends  Creature{
 
     public Zombie(Handler handler, float x, float y,String moveType, int rangeMove,int moveSpeed) {
         super(handler, x, y, Tiles.tileWidth, Tiles.tileHeight);
+        deadly=true;
         bounds.x=16;
         bounds.y=32;
         bounds.width=32;
@@ -25,6 +26,7 @@ public class Zombie extends  Creature{
         this.moveRange = rangeMove;
         this.moveSpeed = moveSpeed;
         this.direction = true;
+
         init();
 
     }
@@ -50,10 +52,7 @@ public class Zombie extends  Creature{
     public void die() {
 
     }
-    public void randomMovement(){
-        System.out.println(stayStill);
 
-    }
     public void move(){
         currentMove++;
         if(checkEntityCollision(moveX,0)||stayStill==true||currentMove>moveRange){
@@ -73,7 +72,6 @@ public class Zombie extends  Creature{
 
         } else if (moveType.equals("vertical") ){
             if(direction){
-                System.out.println(stayStill);
                 moveY = moveSpeed;
             }else{
                 moveY = -moveSpeed;

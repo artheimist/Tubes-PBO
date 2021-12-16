@@ -13,10 +13,12 @@ public class Tree extends StaticEntity{
         bounds.y=(int)(height/1.5f);
         bounds.width=width-40;
         bounds.height=(int)(height-height/1.5f);
+        deadly=false;
     }
 
     @Override
     public void update() {
+
     }
 
     @Override

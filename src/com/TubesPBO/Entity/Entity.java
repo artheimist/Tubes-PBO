@@ -12,6 +12,7 @@ public abstract class Entity {
     protected int width,height;
     protected Rectangle bounds;
     protected  int health;
+    public boolean active=true,deadly=false;
     public Entity(Handler handler,int width,int height,float x, float y){
         this.handler=handler;
         this.x=x;
@@ -33,6 +34,16 @@ public abstract class Entity {
     }
     public Rectangle getCollisionBounds(float xOffset, float yOffset){
         return  new Rectangle((int)(x+bounds.x+xOffset),(int)(y+bounds.y+yOffset),bounds.width,bounds.height);
+    }
+    public Rectangle getCollisionBoundsEnemy(float xOffset, float yOffset){
+        return new Rectangle((int) (x + bounds.x + xOffset - 1), (int) (y + bounds.y + yOffset -1), bounds.width + 3, bounds.height + 3);
+    }
+    public void receiveDamage(int damage){
+        health-=damage;
+        if(health<=0&&deadly){
+            active=false;
+        }
+        die();
     }
     public float getX() {
         return x;
@@ -65,6 +76,20 @@ public abstract class Entity {
     public void setHeight(int height) {
         this.height = height;
     }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public boolean isDeadly() {
+        return deadly;
+    }
+
+
 
     public abstract void update();
     public abstract void die();

@@ -1,29 +1,31 @@
 package com.TubesPBO.Entity.Creature;
 
-import com.TubesPBO.Game.Game;
+import com.TubesPBO.Entity.Entity;
+import com.TubesPBO.Entity.Static.Chest;
 import com.TubesPBO.Game.Handler;
 import com.TubesPBO.Grapichs.Animation;
 import com.TubesPBO.Grapichs.Assets;
 import com.TubesPBO.Grapichs.DisplayItems;
 import com.TubesPBO.States.State;
 
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Player extends Creature{
     int lastFrame=4;
-    private int health,weaponZombie,weaponGhost;
+    private int health,weapon;
     private DisplayItems displayItems;
     private Animation animationDown,animationUp,animationRight,animationLeft;
+    private Chest chest;
     public Player(Handler handler , float x, float y) {
         super(handler,x, y,Creature.deafult_creature_width,Creature.deafult_creature_height);
         bounds.x=16;
         bounds.y=32;
         bounds.width=32;
         bounds.height=32;
-        this.health=3;
-        weaponGhost=0;
-        weaponZombie=0;
+        health=3;
+        weapon=0;
         init();
         displayItems= new DisplayItems(handler);
     }
@@ -47,16 +49,60 @@ public class Player extends Creature{
         die();
         handler.getGameCamera().cameraOnEntity(this);
         displayItems.update();
+        attack();
     }
 
     @Override
     public void die() {
         if(health==0){
             State.setState(handler.getGame().gameOverState);
-            return;
+        }
+        Rectangle playerBody = getCollisionBoundsEnemy(0, 0);
+        for(Entity e : handler.getWorld().getEntityManager().getEntities()){
+            if(playerBody.intersects(e.getCollisionBoundsEnemy(0, 0)) && e.isDeadly() ){
+                this.health--;
+                //set posisi player ke tmpt awal tiap kali dia mati
+                handler.getWorld().getEntityManager().getPlayer().setX(handler.getWorld().getSpawnX());
+                handler.getWorld().getEntityManager().getPlayer().setY(handler.getWorld().getSpawnY());
+            }
+
         }
     }
     public void attack(){
+        Rectangle att= new Rectangle();
+        Rectangle collision= getCollisionBounds(0,0);
+        int attackArea=20;
+        att.width=attackArea;
+        att.height=attackArea;
+
+        if(handler.getKeyManager().arrUp){
+            att.x=collision.x+collision.width/2-attackArea/2;
+            att.y=collision.y-attackArea;
+        }else if(handler.getKeyManager().arrDown){
+            att.x=collision.x+collision.width/2-attackArea/2;
+            att.y=collision.y+collision.height;
+        }else if(handler.getKeyManager().arrLeft){
+            att.x=collision.x-attackArea;
+            att.y=collision.y+collision.height/2-attackArea/2;
+        }else if(handler.getKeyManager().arrRight){
+            att.x=collision.x+collision.width;
+            att.y=collision.y+collision.height/2-attackArea/2;
+        }else {
+            return;
+        }
+
+        for(Entity e: handler.getWorld().getEntityManager().getEntities()){
+            if(e.equals(this)){
+                continue;
+            }if(e.getCollisionBoundsEnemy(0,0).intersects(att)&&e.isDeadly()&&this.weapon>0){
+                e.receiveDamage(1);
+                return;
+            }else if(e.getCollisionBoundsEnemy(0,0).intersects(att)&&!e.isDeadly()){
+                e.receiveDamage(1);
+                return;
+            }
+
+        }
 
     }
     private void input(){
@@ -122,11 +168,14 @@ public class Player extends Creature{
         return health;
     }
 
-    public String getWeaponGhost() {
-        return Integer.toString(weaponGhost);
+    public int getWeapon() {
+        return weapon;
     }
-
-    public String getWeaponZombie() {
-        return Integer.toString(weaponZombie);
+    public String tostring(){
+        String s=Integer.toString(getWeapon());
+        return s;
+    }
+    public void setWeapon(int weapon) {
+        this.weapon = weapon;
     }
 }

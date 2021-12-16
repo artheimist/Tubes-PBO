@@ -12,6 +12,7 @@ public class Grave extends StaticEntity{
         bounds.y=(int)(height-50/1.5f);
         bounds.width=width-20;
         bounds.height=(int)(height-height/3.0f);
+        deadly=false;
     }
 
     @Override

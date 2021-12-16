@@ -25,6 +25,7 @@ public class Ghost extends  Creature{
         this.moveRange = rangeMove;
         this.moveSpeed = moveSpeed;
         this.direction = true;
+        deadly=true;
         init();
 
     }
@@ -69,7 +70,6 @@ public class Ghost extends  Creature{
 
         } else if (moveType.equals("vertical") ){
             if(direction){
-                System.out.println(stayStill);
                 moveY = moveSpeed;
             }else{
                 moveY = -moveSpeed;

@@ -17,27 +17,27 @@ public class DisplayItems {
     public void render(Graphics g){
         switch (handler.getWorld().getEntityManager().getPlayer().getHealth()){
             case 1:
+                g.drawImage(Assets.heart,10,10,30,30,null);
                 break;
             case 2:
+                g.drawImage(Assets.heart,10,10,30,30,null);
+                g.drawImage(Assets.heart,50,10,30,30,null);
                 break;
             case 3:
+                g.drawImage(Assets.heart,10,10,30,30,null);
+                g.drawImage(Assets.heart,50,10,30,30,null);
+                g.drawImage(Assets.heart,90,10,30,30,null);
                 break;
             default:
                 break;
         }
         weaponGhost(g);
-        weaponZombie(g);
     }
-    public void weaponZombie (Graphics g){
-        g.setColor(Color.WHITE);
-        g.setFont(new Font("Arial", Font.BOLD, 30));
-        g.drawImage(Assets.belati1,470,20,30,30,null);
-        g.drawString(handler.getWorld().getEntityManager().getPlayer().getWeaponZombie(),510, 47);
-    }
+
     public void weaponGhost(Graphics g){
         g.setColor(Color.WHITE);
         g.setFont(new Font("Arial", Font.BOLD, 30));
-        g.drawImage(Assets.salib1,360,20,30,30,null);
-        g.drawString(handler.getWorld().getEntityManager().getPlayer().getWeaponGhost(),400, 47);
+        g.drawImage(Assets.salib,360,20,30,30,null);
+        g.drawString(handler.getWorld().getEntityManager().getPlayer().tostring(),400, 47);
     }
 }

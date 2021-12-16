@@ -5,6 +5,7 @@ import com.TubesPBO.Entity.Creature.Player;
 import com.TubesPBO.Entity.Creature.Zombie;
 import com.TubesPBO.Entity.EntityManager;
 import com.TubesPBO.Entity.Static.Chest;
+import com.TubesPBO.Entity.Static.Gate;
 import com.TubesPBO.Entity.Static.Grave;
 import com.TubesPBO.Entity.Static.Tree;
 import com.TubesPBO.Game.Game;
@@ -16,7 +17,7 @@ import java.awt.*;
 
 public class World {
     private int width,height;
-    private int spawnX,spawnY;
+    public int spawnX,spawnY;
     private int[][] tile;
     protected Handler handler;
     private EntityManager entityManager;
@@ -224,10 +225,14 @@ public class World {
         entityManager.addEntity(new Tree(handler,1665,1635));
         entityManager.addEntity(new Tree(handler,1665,1730));
         //chest
-//        entityManager.addEntity((new Ghost(handler,300,50,"horizontal",200,2)));
+        entityManager.addEntity((new Chest(handler,400,200,true)));
+        entityManager.addEntity((new Ghost(handler,370,50,"vertical",200,2)));
         //zombie
 //        entityManager.addEntity((new Zombie(handler,400,50,"vertical",200,2)));
         //ghost
+        entityManager.addEntity(new Gate(handler,500,100));
+//        entityManager.addEntity(new Ghost(handler,200,100,"vertical",200,2));
+
     }
     public void loadWorld(String path){
         String file= Utils.loadFileAsString(path);
@@ -255,5 +260,13 @@ public class World {
 
     public EntityManager getEntityManager() {
         return entityManager;
+    }
+
+    public int getSpawnX() {
+        return spawnX;
+    }
+
+    public int getSpawnY() {
+        return spawnY;
     }
 }

@@ -1,6 +1,8 @@
 package com.TubesPBO.Entity;
 
+import com.TubesPBO.Entity.Creature.Ghost;
 import com.TubesPBO.Entity.Creature.Player;
+import com.TubesPBO.Entity.Creature.Zombie;
 import com.TubesPBO.Game.Handler;
 
 import java.awt.*;
@@ -10,6 +12,7 @@ import java.util.Comparator;
 public class EntityManager {
     private Handler handler;
     private Player player;
+    public int count=0;
     private ArrayList<Entity> entities;
     private Comparator<Entity> renderSort =new Comparator<Entity>() {
         @Override
@@ -31,6 +34,10 @@ public class EntityManager {
         for (int i=0; i<entities.size();i++){
             Entity e = entities.get(i);
             e.update();
+            if(!e.isActive()){
+                entities.remove(e);
+                count--;
+            }
         }
         entities.sort(renderSort);
 
@@ -43,6 +50,9 @@ public class EntityManager {
     }
     public void addEntity(Entity e){
         entities.add(e);
+        if(e.deadly){
+            count++;
+        }
     }
     public Player getPlayer() {
         return player;
@@ -67,4 +77,5 @@ public class EntityManager {
     public void setPlayer(Player player) {
         this.player = player;
     }
+
 }
