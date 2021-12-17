@@ -4,10 +4,8 @@ import com.TubesPBO.Display.Display;
 import com.TubesPBO.Grapichs.Assets;
 import com.TubesPBO.Grapichs.GameCamera;
 import com.TubesPBO.Input.KeyManager;
-import com.TubesPBO.States.GameOverState;
-import com.TubesPBO.States.GameState;
-import com.TubesPBO.States.MenuState;
-import com.TubesPBO.States.State;
+import com.TubesPBO.Input.MouseManager;
+import com.TubesPBO.States.*;
 
 
 import java.awt.*;
@@ -25,8 +23,13 @@ public class Game implements Runnable{ // extend Thread
 
     public State gameState;        // untuk menu state, exit state,game state
     public State gameOverState;
-    public State menuState;         // menu state
-    private KeyManager keyManager;  // untuk key manager
+    public State menuState;
+    public State pauseState;
+    public State gameFinished;
+
+    private KeyManager keyManager;  // untuk key manager && mouse
+    private MouseManager mouseManager;
+
     private GameCamera gameCamera;  // untuk camera
     private Handler handler;        // untuk getter dan setter world dan game
     Game (String title, int width, int height){
@@ -34,18 +37,28 @@ public class Game implements Runnable{ // extend Thread
         this.height=height;
         this.title=title;
         keyManager= new KeyManager();
+        mouseManager= new MouseManager();
     }
     public void init(){                                 // inisialisasi untuk gamenya ex: display
+
         display=new Display(title,width,height);        // nampilin display (Jframe dkk) a.k.a GUI
         display.getFrame().addKeyListener(keyManager);
+        display.getFrame().addMouseMotionListener(mouseManager);
+        display.getFrame().addMouseListener(mouseManager);
+        display.getCanvas().addMouseMotionListener(mouseManager);
+        display.getCanvas().addMouseListener(mouseManager);
+
         Assets.init();
+
         handler= new Handler(this);
         gameCamera= new GameCamera(handler,0,0);
-                                                        //mana yang akan ditampilkan duluan
+
         gameState= new GameState(handler);
+        pauseState= new PauseState(handler);
         menuState= new MenuState(handler);
+        gameFinished= new GameFinished(handler);
         gameOverState= new GameOverState(handler);
-        State.setState(gameState); // set nilai state nya disini klo mau nampilin langsung game nya, klo mau menu jadinya di set menuState
+        State.setState(menuState); // set nilai state nya disini klo mau nampilin langsung game nya, klo mau menu jadinya di set menuState
     }
     public void update(){
         keyManager.update();
@@ -124,5 +137,9 @@ public class Game implements Runnable{ // extend Thread
 
     public int getHeight() {
         return height;
+    }
+
+    public MouseManager getMouseManager() {
+        return mouseManager;
     }
 }

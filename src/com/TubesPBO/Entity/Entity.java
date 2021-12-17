@@ -12,7 +12,7 @@ public abstract class Entity {
     protected int width,height;
     protected Rectangle bounds;
     protected  int health;
-    public boolean active=true,deadly=false;
+    public boolean active=true,deadly=false,endGame=false;
     public Entity(Handler handler,int width,int height,float x, float y){
         this.handler=handler;
         this.x=x;
@@ -89,7 +89,13 @@ public abstract class Entity {
         return deadly;
     }
 
+    public boolean isEndGame() {
+        return endGame;
+    }
 
+    public void setEndGame(boolean endGame) {
+        this.endGame = endGame;
+    }
 
     public abstract void update();
     public abstract void die();

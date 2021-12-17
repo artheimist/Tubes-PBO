@@ -1,35 +1,32 @@
 package com.TubesPBO.States;
 
-import com.TubesPBO.Game.Game;
 import com.TubesPBO.Game.Handler;
 import com.TubesPBO.Grapichs.Assets;
 import com.TubesPBO.Ui.Click;
 import com.TubesPBO.Ui.UiButton;
 import com.TubesPBO.Ui.UiManager;
 
-import javax.swing.*;
 import java.awt.*;
 
-
-public class MenuState extends State {
-    private UiManager uiManager;
-
-    public MenuState(Handler handler){
+public class PauseState extends State{
+    public UiManager uiManager;
+    public PauseState(Handler handler) {
         super(handler);
         uiManager= new UiManager(handler);
-        handler.getMouseManager().setUiManager(uiManager);
-        uiManager.addObject(new UiButton(370, 170, 190, 100, Assets.start, new Click() {
+
+        uiManager.addObject(new UiButton(230, 150, 190, 100, Assets.continue1, new Click() {
             @Override
             public void onClick() {
+
                 handler.getMouseManager().setUiManager(null);
-                handler.getGame().gameState.switched();
                 State.setState(handler.getGame().gameState);
             }
         }));
-        uiManager.addObject(new UiButton(370, 240, 190, 100, Assets.exit, new Click() {
+        uiManager.addObject(new UiButton(230, 250, 190, 100, Assets.exit, new Click() {
             @Override
             public void onClick() {
-                System.exit(0);
+                handler.getGame().menuState.switched();
+                State.setState(handler.getGame().menuState);
             }
         }));
     }
@@ -41,8 +38,10 @@ public class MenuState extends State {
 
     @Override
     public void render(Graphics g) {
-        g.drawImage(Assets.menu,0,0,640,480,null);
-        g.drawImage(Assets.title,0,160,350,200,null);
+        g.drawImage(Assets.pauseBg,0,0,640,480,null);
+        g.drawImage(Assets.killAll,170, 50,190,100,null);
+        g.drawImage(Assets.enemies,340, 50,190,100,null);
+
         uiManager.render(g);
     }
 
@@ -51,6 +50,7 @@ public class MenuState extends State {
         handler.getMouseManager().setUiManager(uiManager);
     }
 
-
-
+    public UiManager getUiManager() {
+        return uiManager;
+    }
 }

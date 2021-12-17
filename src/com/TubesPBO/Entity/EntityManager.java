@@ -13,6 +13,7 @@ public class EntityManager {
     private Handler handler;
     private Player player;
     public int count=0;
+    public boolean isOpen=false;
     private ArrayList<Entity> entities;
     private Comparator<Entity> renderSort =new Comparator<Entity>() {
         @Override
@@ -37,6 +38,9 @@ public class EntityManager {
             if(!e.isActive()){
                 entities.remove(e);
                 count--;
+                if(count<=0){
+                    isOpen=true;
+                }
             }
         }
         entities.sort(renderSort);
@@ -78,4 +82,7 @@ public class EntityManager {
         this.player = player;
     }
 
+    public boolean isOpen() {
+        return isOpen;
+    }
 }

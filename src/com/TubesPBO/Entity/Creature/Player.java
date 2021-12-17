@@ -6,6 +6,7 @@ import com.TubesPBO.Game.Handler;
 import com.TubesPBO.Grapichs.Animation;
 import com.TubesPBO.Grapichs.Assets;
 import com.TubesPBO.Grapichs.DisplayItems;
+import com.TubesPBO.States.PauseState;
 import com.TubesPBO.States.State;
 
 
@@ -64,6 +65,9 @@ public class Player extends Creature{
                 //set posisi player ke tmpt awal tiap kali dia mati
                 handler.getWorld().getEntityManager().getPlayer().setX(handler.getWorld().getSpawnX());
                 handler.getWorld().getEntityManager().getPlayer().setY(handler.getWorld().getSpawnY());
+            }if(playerBody.intersects(e.getCollisionBoundsEnemy(0, 0))&& e.isEndGame()){
+                State.setState(handler.getGame().gameFinished);
+                return;
             }
 
         }

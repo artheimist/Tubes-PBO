@@ -9,9 +9,7 @@ import com.TubesPBO.World.World;
 import java.awt.*;
 
 public class GameState extends State {// real game state
-    private Player player;
     private World world;
-    private Tree tree;
     public GameState(Handler handler){
         super(handler);
         world= new  World(handler,"res/Map/Map.txt");
@@ -19,14 +17,27 @@ public class GameState extends State {// real game state
 //        player=new Player(handler,50,50);
     }
 
+    public void start(){
+        world= new  World(handler,"res/Map/Map.txt");
+        handler.setWorld(world);
+    }
     @Override
     public void update() {
         world.update();
+        if(handler.getKeyManager().esc){
+            handler.getGame().pauseState.switched();
+            State.setState(handler.getGame().pauseState);
+        }
     }
 
     @Override
     public void render(Graphics g) {
         world.render(g);
+    }
+
+    @Override
+    public void switched(){
+       start();
     }
 
 }

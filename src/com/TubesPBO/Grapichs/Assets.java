@@ -16,8 +16,14 @@ public class Assets {
     public static BufferedImage tree,grave;
     //item
     public static BufferedImage salib,heart,chest,chestOpened,gate,gateOpened;
+    public static BufferedImage exit,pauseBg,gameOverBg,title,start,continue1,killAll,enemies,gameOverTitle;
+    //bg
+    public static BufferedImage menu;
     public static void init(){
         Sheet zombie= new Sheet(ImageLoader.loadimage("/Textures/Entity/zombie.png"));
+        Sheet titleGame= new Sheet(ImageLoader.loadimage("/Textures/Ui/gameOverTitle.png"));
+        Sheet titlePause= new Sheet(ImageLoader.loadimage("/Textures/Ui/titlepause.png"));
+        Sheet pause= new Sheet(ImageLoader.loadimage("/Textures/Ui/pause.png"));
         Sheet items= new Sheet(ImageLoader.loadimage("/Textures/StaticEntity/items.png"));
         Sheet ghost= new Sheet(ImageLoader.loadimage("/Textures/Entity/Ghost.png"));
         Sheet player= new Sheet(ImageLoader.loadimage("/Textures/Entity/player.png"));
@@ -113,5 +119,17 @@ public class Assets {
         heart=items.crop(128,0,128,128);
         gate=items.crop(0,128,128,128);
         gateOpened=items.crop(128,128,128,128);
+        //title & stuff
+        title=titlePause.crop(0,128*2,256,128);
+        start=pause.crop(0,0,256,128);
+        continue1=pause.crop(0,128,256,128);
+        exit=pause.crop(0,128*2,256,128);
+        //bg
+        menu=ImageLoader.loadimage("/Textures/Ui/Menu.png");
+        pauseBg=ImageLoader.loadimage("/Textures/Ui/PauseBg.png");
+        killAll=titlePause.crop(0,0,256,128);
+        enemies=titlePause.crop(0,128,256,128);
+        gameOverBg=ImageLoader.loadimage("/Textures/Ui/GameOverbg.png");
+        gameOverTitle=titleGame.crop(0,128,256,128);
     }
 }

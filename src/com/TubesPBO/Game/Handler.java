@@ -2,6 +2,7 @@ package com.TubesPBO.Game;
 
 import com.TubesPBO.Grapichs.GameCamera;
 import com.TubesPBO.Input.KeyManager;
+import com.TubesPBO.Input.MouseManager;
 import com.TubesPBO.World.World;
 
 public class Handler {
@@ -40,5 +41,8 @@ public class Handler {
 
     public void setWorld(World world) {
         this.world = world;
+    }
+    public MouseManager getMouseManager(){
+        return game.getMouseManager();
     }
 }

@@ -64,8 +64,8 @@ public class World {
         //
         entityManager.addEntity(new Tree(handler,50,0));
         entityManager.addEntity(new Tree(handler,0,120));
-        entityManager.addEntity(new Grave(handler,30,240));
-        entityManager.addEntity(new Tree(handler,0,250));
+        entityManager.addEntity(new Grave(handler,60,250));
+        entityManager.addEntity(new Tree(handler,0,240));
         entityManager.addEntity(new Tree(handler,0,380));
         entityManager.addEntity(new Tree(handler,0,430));
         entityManager.addEntity(new Tree(handler,60,380));
@@ -122,9 +122,9 @@ public class World {
         entityManager.addEntity(new Grave(handler,250,250));
         entityManager.addEntity(new Grave(handler,515,250));
         entityManager.addEntity(new Grave(handler,630,250));
-        entityManager.addEntity(new Grave(handler,515,70));
+        entityManager.addEntity(new Grave(handler,515,60));
         entityManager.addEntity(new Tree(handler,570,0));
-        entityManager.addEntity(new Grave(handler,630,70));
+        entityManager.addEntity(new Grave(handler,630,60));
         entityManager.addEntity(new Tree(handler,685,0));
         entityManager.addEntity(new Grave(handler,570,370));
         entityManager.addEntity(new Grave(handler,685,370));
@@ -224,15 +224,77 @@ public class World {
         entityManager.addEntity(new Tree(handler,1600,1410));
         entityManager.addEntity(new Tree(handler,1665,1635));
         entityManager.addEntity(new Tree(handler,1665,1730));
+        //
+        entityManager.addEntity(new Grave(handler,630,125));
+        entityManager.addEntity(new Grave(handler,515,125));
         //chest
-        entityManager.addEntity((new Chest(handler,400,200,true)));
-        entityManager.addEntity((new Ghost(handler,370,50,"vertical",200,2)));
-        //zombie
-//        entityManager.addEntity((new Zombie(handler,400,50,"vertical",200,2)));
-        //ghost
-        entityManager.addEntity(new Gate(handler,500,100));
-//        entityManager.addEntity(new Ghost(handler,200,100,"vertical",200,2));
 
+        //zombie
+        entityManager.addEntity((new Zombie(handler,820,130,"vertical",90,2)));
+        //hummm
+        entityManager.addEntity((new Zombie(handler,1665,50,"vertical",90,2)));
+        entityManager.addEntity((new Zombie(handler,60,580,"vertical",180,2)));
+        //3 dikiri
+        entityManager.addEntity((new Zombie(handler,190,670,"vertical",200,2)));
+        // 3 kanan
+        entityManager.addEntity((new Zombie(handler,390,670,"vertical",180,2)));
+        entityManager.addEntity((new Zombie(handler,450,760,"vertical",100,2)));
+        entityManager.addEntity((new Zombie(handler,640,580,"vertical",50,2)));
+        entityManager.addEntity((new Zombie(handler,700,680,"vertical",90,2)));
+        entityManager.addEntity((new Zombie(handler,970,680,"vertical",200,2)));
+        entityManager.addEntity((new Zombie(handler,1140,750,"vertical",150,2)));
+        entityManager.addEntity((new Zombie(handler,1200,650,"vertical",70,2)));
+        entityManager.addEntity((new Zombie(handler,1400,790,"vertical",80,2)));
+        //floor 2
+        entityManager.addEntity((new Zombie(handler,60,1700,"vertical",100,2)));
+        entityManager.addEntity((new Zombie(handler,180,1850,"vertical",100,2)));
+        entityManager.addEntity((new Zombie(handler,250,1200,"vertical",110,2)));
+        entityManager.addEntity((new Zombie(handler,380,1450,"vertical",135,2)));
+        entityManager.addEntity((new Zombie(handler,830,1400,"vertical",115,2)));
+        entityManager.addEntity((new Zombie(handler,950,1200,"vertical",115,2)));
+        entityManager.addEntity((new Zombie(handler,1000,1500,"vertical",115,2)));
+        entityManager.addEntity((new Zombie(handler,1270,1200,"vertical",115,2)));
+        entityManager.addEntity((new Zombie(handler,1480,1850,"vertical",100,2)));
+        entityManager.addEntity((new Zombie(handler,1720,1850,"vertical",50,2)));
+        entityManager.addEntity((new Zombie(handler,1720,1300,"vertical",100,2)));
+
+        //ghost
+        entityManager.addEntity((new Ghost(handler,850,50,"horizontal",200,2)));
+        entityManager.addEntity((new Ghost(handler,1100,50,"horizontal",200,2)));
+        entityManager.addEntity((new Ghost(handler,400,120,"horizontal",200,2)));
+        entityManager.addEntity((new Ghost(handler,120,170,"horizontal",100,2)));
+        entityManager.addEntity((new Ghost(handler,400,170,"horizontal",160,2)));
+        entityManager.addEntity((new Ghost(handler,1350,180,"horizontal",100,2)));
+        entityManager.addEntity((new Ghost(handler,80,315,"horizontal",115,2)));
+        entityManager.addEntity((new Ghost(handler,1350,315,"horizontal",200,2)));
+        entityManager.addEntity((new Ghost(handler,510,430,"horizontal",70,2)));
+        //3 monster di tengah
+        entityManager.addEntity((new Ghost(handler,260,570,"horizontal",80,2)));
+        entityManager.addEntity((new Ghost(handler,1500,620,"horizontal",200,2)));
+        entityManager.addEntity((new Ghost(handler,1400,700,"horizontal",130,2)));
+        // lagi 3 monster
+        entityManager.addEntity((new Ghost(handler,700,890,"horizontal",110,2)));
+        entityManager.addEntity((new Ghost(handler,500,990,"horizontal",70,2)));
+        entityManager.addEntity((new Ghost(handler,1350,1000,"horizontal",180,2)));
+        //floor 2
+        entityManager.addEntity((new Ghost(handler,60,1460,"horizontal",80,2)));
+        entityManager.addEntity((new Ghost(handler,320,1780,"horizontal",550,2)));
+        entityManager.addEntity((new Ghost(handler,1120,1650,"horizontal",130,2)));
+        entityManager.addEntity((new Ghost(handler,980,1450,"horizontal",230,2)));
+        entityManager.addEntity((new Ghost(handler,780,1520,"horizontal",90,2)));
+        entityManager.addEntity((new Ghost(handler,800,1340,"horizontal",90,2)));
+        entityManager.addEntity((new Ghost(handler,520,1260,"horizontal",200,2)));
+        entityManager.addEntity((new Ghost(handler,1000,1340,"horizontal",90,2)));
+        entityManager.addEntity((new Ghost(handler,1000,1140,"horizontal",70,2)));
+        entityManager.addEntity((new Ghost(handler,1200,1200,"horizontal",40,2)));
+        entityManager.addEntity((new Ghost(handler,1550,1200,"horizontal",60,2)));
+        entityManager.addEntity((new Ghost(handler,1700,1600,"horizontal",130,2)));
+        //chest
+        entityManager.addEntity(new Chest(handler,1790,1800,true));
+
+        entityManager.addEntity(new Chest(handler,100,100,true));//chest ngecek
+        //gate
+        entityManager.addEntity(new Gate(handler,1470,1280));
     }
     public void loadWorld(String path){
         String file= Utils.loadFileAsString(path);

@@ -6,6 +6,7 @@ import com.TubesPBO.Grapichs.Assets;
 import java.awt.*;
 
 public class Grave extends StaticEntity{
+
     public Grave(Handler handler, float x, float y) {
         super(handler, 64, 64, x, y);
         bounds.x=10;

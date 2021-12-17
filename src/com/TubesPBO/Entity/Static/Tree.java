@@ -2,7 +2,7 @@ package com.TubesPBO.Entity.Static;
 
 import com.TubesPBO.Game.Handler;
 import com.TubesPBO.Grapichs.Assets;
-import com.TubesPBO.Tile.Tiles;
+
 
 import java.awt.*;
 

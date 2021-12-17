@@ -24,4 +24,5 @@ public abstract class State {// main menu settings dll
 
     public abstract void update();
     public abstract void render(Graphics g);
+    public abstract void switched();
 }

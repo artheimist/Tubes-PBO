@@ -8,7 +8,7 @@ import java.awt.*;
 
 public abstract class Creature extends Entity {
 
-    public static final float deafult_Speed= 10.0F;
+    public static final float deafult_Speed= 5.0F;
     public static  final int deafult_creature_width=64;
     public static final int deafult_creature_height=64;
 

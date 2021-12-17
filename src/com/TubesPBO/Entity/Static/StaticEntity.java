@@ -8,6 +8,4 @@ public abstract class StaticEntity extends Entity {
     public StaticEntity(Handler handler, int width, int height, float x, float y) {
         super(handler, width, height, x, y);
     }
-
-
 }
