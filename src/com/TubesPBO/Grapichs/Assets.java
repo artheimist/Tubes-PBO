@@ -16,7 +16,7 @@ public class Assets {
     public static BufferedImage tree,grave;
     //item
     public static BufferedImage salib,heart,chest,chestOpened,gate,gateOpened;
-    public static BufferedImage exit,pauseBg,gameOverBg,title,start,continue1,killAll,enemies,gameOverTitle;
+    public static BufferedImage exit,pauseBg,gameOverBg,title,start,continue1,killAll,enemies,gameOverTitle,gamewonBg,gamewonTitle;
     //bg
     public static BufferedImage menu;
     public static void init(){
@@ -131,5 +131,7 @@ public class Assets {
         enemies=titlePause.crop(0,128,256,128);
         gameOverBg=ImageLoader.loadimage("/Textures/Ui/GameOverbg.png");
         gameOverTitle=titleGame.crop(0,128,256,128);
+        gamewonBg=ImageLoader.loadimage("/Textures/Ui/GameWon.png");
+        gamewonTitle=titleGame.crop(0,0,256,128);
     }
 }

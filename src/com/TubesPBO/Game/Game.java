@@ -1,5 +1,6 @@
 package com.TubesPBO.Game;
 
+
 import com.TubesPBO.Display.Display;
 import com.TubesPBO.Grapichs.Assets;
 import com.TubesPBO.Grapichs.GameCamera;
@@ -29,7 +30,6 @@ public class Game implements Runnable{ // extend Thread
 
     private KeyManager keyManager;  // untuk key manager && mouse
     private MouseManager mouseManager;
-
     private GameCamera gameCamera;  // untuk camera
     private Handler handler;        // untuk getter dan setter world dan game
     Game (String title, int width, int height){

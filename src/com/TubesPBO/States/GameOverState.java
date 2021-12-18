@@ -13,6 +13,7 @@ public class GameOverState extends State{
     public GameOverState(Handler handler) {
         super(handler);
         uiManager= new UiManager(handler);
+
     }
 
     @Override
@@ -22,7 +23,7 @@ public class GameOverState extends State{
             State.setState(handler.getGame().menuState);
         }
     }
-
+    
     @Override
     public void render(Graphics g) {
         g.drawImage(Assets.gameOverBg,0,0, 640,480,null);
