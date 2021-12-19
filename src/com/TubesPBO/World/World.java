@@ -59,9 +59,6 @@ public class World {
         return  tile;
     }
     public void loadEntity(){
-        //chest
-//        entityManager.addEntity(new Chest(handler,450,200));
-        //
         entityManager.addEntity(new Tree(handler,50,0));
         entityManager.addEntity(new Tree(handler,0,120));
         entityManager.addEntity(new Grave(handler,60,250));
@@ -262,7 +259,7 @@ public class World {
         entityManager.addEntity((new Ghost(handler,850,50,"horizontal",200,2)));
         entityManager.addEntity((new Ghost(handler,1100,50,"horizontal",200,2)));
         entityManager.addEntity((new Ghost(handler,400,120,"horizontal",200,2)));
-        entityManager.addEntity((new Ghost(handler,120,170,"horizontal",100,2)));
+        entityManager.addEntity((new Ghost(handler,120,170,"horizontal",80,2)));
         entityManager.addEntity((new Ghost(handler,400,170,"horizontal",160,2)));
         entityManager.addEntity((new Ghost(handler,1350,180,"horizontal",100,2)));
         entityManager.addEntity((new Ghost(handler,80,315,"horizontal",115,2)));
@@ -291,8 +288,20 @@ public class World {
         entityManager.addEntity((new Ghost(handler,1700,1600,"horizontal",130,2)));
         //chest
         entityManager.addEntity(new Chest(handler,1790,1800,true));
+        entityManager.addEntity(new Chest(handler,60,180,false));
+        entityManager.addEntity(new Chest(handler,60,480,false));
+        entityManager.addEntity(new Chest(handler,700,440,false));
+        entityManager.addEntity(new Chest(handler,970,510,false));
+        entityManager.addEntity(new Chest(handler,830,770,false));
+        entityManager.addEntity(new Chest(handler,1800,510,false));
+        entityManager.addEntity(new Chest(handler,1790,1030,false));
+        entityManager.addEntity(new Chest(handler,120,1800,false));
+        entityManager.addEntity(new Chest(handler,530,1150,false));
 
-        entityManager.addEntity(new Chest(handler,100,100,true));//chest ngecek
+
+
+
+//        entityManager.addEntity(new Chest(handler,100,100,true));//chest ngecek
         //gate
         entityManager.addEntity(new Gate(handler,1470,1280));
     }

@@ -18,7 +18,6 @@ public class Player extends Creature{
     private int health,weapon;
     private DisplayItems displayItems;
     private Animation animationDown,animationUp,animationRight,animationLeft;
-    private Chest chest;
     public Player(Handler handler , float x, float y) {
         super(handler,x, y,Creature.deafult_creature_width,Creature.deafult_creature_height);
         bounds.x=16;

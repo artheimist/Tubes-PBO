@@ -101,7 +101,7 @@ public class Game implements Runnable{ // extend Thread
             }
 
         }
-        stop();
+
     }
     public synchronized  void start(){
         if(running){
