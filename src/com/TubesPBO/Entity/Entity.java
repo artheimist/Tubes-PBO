@@ -22,6 +22,9 @@ public abstract class Entity {
         bounds= new Rectangle(0,0,width,height);
     }
     public  Boolean checkEntityCollision(float xOffset,float yOffset){
+        for (int i=0; i<handler.getWorld().getEntityManager().getEntities().size();i++){
+            Entity e=handler.getWorld().getEntityManager().getEntities().get(i);
+        }
         for(Entity e: handler.getWorld().getEntityManager().getEntities()){
             if(e.equals(this)){
                 continue;

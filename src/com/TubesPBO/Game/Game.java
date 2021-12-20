@@ -99,9 +99,7 @@ public class Game implements Runnable{ // extend Thread
                 render();
                 delta--;
             }
-
         }
-
     }
     public synchronized  void start(){
         if(running){
@@ -110,17 +108,6 @@ public class Game implements Runnable{ // extend Thread
         running=true;
         thread =new Thread(this);
         thread.start(); //calling run method
-    }
-    public synchronized  void stop (){
-        if(running){
-            return;
-        }
-        running=false;
-        try {
-            thread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     public KeyManager getKeyManager() {

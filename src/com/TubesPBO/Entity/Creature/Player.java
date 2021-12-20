@@ -93,7 +93,9 @@ public class Player extends Creature{
         }else {
             return;
         }
-
+//        for (int i=0;i<handler.getWorld().getEntityManager().getEntities().size();i++){
+//            Entity e = handler.getWorld().getEntityManager().getEntities().get(i);
+//        }
         for(Entity e: handler.getWorld().getEntityManager().getEntities()){
             if(e.equals(this)){
                 continue;
